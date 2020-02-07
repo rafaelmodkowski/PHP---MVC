@@ -7,6 +7,7 @@
             try{
                 $postagem = Postagem::selecionaPorId($params);
 
+                var_dump($postagem);
 
                 $loader = new \Twig\Loader\FilesystemLoader('app/View');
                 $twig = new \Twig\Environment($loader);
@@ -14,9 +15,8 @@
 
                 $parametros = array();
                 $parametros['postagem'] = $postagem;
-                
-                $conteudo = $template->render($parametros);
 
+                $conteudo = $template->render($parametros);
 
                 echo $conteudo;
 
