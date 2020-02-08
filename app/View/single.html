@@ -1,20 +1,30 @@
 <section>
     <article>
         <header>
-            <h2>
-                {{postagem.titulo}} | {{postagem.idPostagem}}
-            </h2>
+            <h2> {{postagem.titulo}} </h2>
         </header>
-        <p>
-            {{postagem.conteudo}}
-        </p>
+
+        <p> {{postagem.conteudo}} </p>
+
+        <br>
+        <hr>
+        <br>
+
+        {% if postagem.comentarios == false %}
+        <p>Nenhum comentario encontrado para essa postagem.</p>
+        {% endif %}
+
+        {% for comentario in postagem.comentarios %}
+
+        <h3> {{comentario.nome}} </h3>
+
+        <p> {{comentario.mensagem}} </p>
+
+        <br>
+
+        {% endfor %}
+
     </article>
 
-   <!--  {% for comentario in comentarios %}
-    <article>
-        <p>
-            {{comentario.nome}}
-        </p>
-    </article>
-    {% endfor %} -->
+
 </section>
